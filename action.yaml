@@ -1,0 +1,18 @@
+name: "Get Apt package version"
+description: "Get latest Apt package version for specified Ubuntu/Debian version"
+inputs:
+  package:
+    description: "Package to look for"
+    required: true
+  ppa:
+    description: "Additional PPA repository"
+    required: false
+outputs:
+  version:
+    description: "The version of the package"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.ppa &&  format('-p ',. inputs.ppa) }}
+    - ${{ inputs.package }}
