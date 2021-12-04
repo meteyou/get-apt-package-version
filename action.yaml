@@ -1,5 +1,5 @@
-name: "Get Apt package version"
-description: "Get latest Apt package version for specified Ubuntu/Debian version"
+name: "Get APT package version"
+description: "Get candidate package version in an Ubuntu/Debian APT repo"
 inputs:
   baseImage:
     description: "Ubuntu/Debian based image to use"
