@@ -1,4 +1,4 @@
-name: "Test without PPA"
+name: "Test with base image"
 
 on:
   workflow_dispatch:
