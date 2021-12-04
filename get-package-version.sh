@@ -26,7 +26,7 @@ apt-get update
 if [[ ! -z "$PPA" ]]
 then
   apt-get install -y software-properties-common
-  add-apt-repository "$PPA"
+  add-apt-repository "ppa:$PPA"
 fi
 
 VERSION=$(apt policy "$PACKAGE" | sed -n 's/\s*Candidate: //p')
