@@ -2,6 +2,9 @@ name: "Test with PPA"
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
