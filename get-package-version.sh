@@ -27,7 +27,7 @@ apt-get update
 
 if [[ ! -z "$PPA" ]]
 then
-  apt-get install -y software-properties-common
+  apt-get install -y --no-install-recommends software-properties-common
   add-apt-repository "ppa:$PPA"
 fi
 
