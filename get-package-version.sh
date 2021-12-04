@@ -16,14 +16,13 @@ shift "$(($OPTIND -1))"
 # We use xargs to trim any whitespaces surrounding the package name
 PACKAGE=$(echo $* | xargs)
 
-echo $PACKAGE
-
 if [ -z "$PACKAGE" ]
 then
   echo "Package name is required, exiting..."
   exit 1
 fi
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 
 if [[ ! -z "$PPA" ]]
