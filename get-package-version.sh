@@ -13,7 +13,10 @@ while getopts "p:" OPTION; do
 done
 
 shift "$(($OPTIND -1))"
-PACKAGE=$*
+# We use xargs to trim any whitespaces surrounding the package name
+PACKAGE=$(echo $* | xargs)
+
+echo $PACKAGE
 
 if [ -z "$PACKAGE" ]
 then
