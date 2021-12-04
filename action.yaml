@@ -14,5 +14,6 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.ppa && format('-p {0}', inputs.ppa) }}
+    - ${{ inputs.ppa && '-p' }}
+    - ${{ inputs.ppa }}
     - ${{ inputs.package }}
