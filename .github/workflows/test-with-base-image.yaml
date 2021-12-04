@@ -16,6 +16,7 @@ jobs:
         id: get_version
         uses: ./
         with:
+          ppa: nextcloud-devs/client
           package: nextcloud-desktop
           baseImage: ubuntu:bionic
 
