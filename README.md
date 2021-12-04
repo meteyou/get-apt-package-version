@@ -9,5 +9,5 @@ uses: dangmai/get-apt-package-version@main
 with:
   ppa: "nextcloud-devs/client"
   package: "nextcloud-desktop"
-  build-args: BASE_IMAGE=ubuntu:focal
+  baseImage: "ubuntu:focal"
 ```

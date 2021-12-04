@@ -1,6 +1,10 @@
 name: "Get Apt package version"
 description: "Get latest Apt package version for specified Ubuntu/Debian version"
 inputs:
+  baseImage:
+    description: "Ubuntu/Debian based image to use"
+    required: true
+    default: "ubuntu:focal"
   package:
     description: "Package to look for"
     required: true
@@ -11,9 +15,11 @@ outputs:
   version:
     description: "The version of the package"
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.ppa && '-p' }}
-    - ${{ inputs.ppa }}
-    - ${{ inputs.package }}
+  using: "composite"
+  steps:
+    - id: build
+      run: docker build --build-args BASE_IMAGE=${{ inputs.baseImage }} -t apt-package-version
+      shell: bash
+    - id: run
+      run: docker run --rm -v $(pwd):/github/workspace --workdir /github/workspace apt-package-version ${{ inputs.ppa && format('-p {0}', inputs.ppa) }} ${{ inputs.package }}
+      shell: bash
