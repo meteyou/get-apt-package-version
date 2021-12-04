@@ -1,0 +1,22 @@
+name: "Test without PPA"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Nextcloud version in PPA
+        id: get_version
+        uses: ./
+        with:
+          package: nextcloud-desktop
+
+      - name: Print version
+        run: echo "${{ steps.get_version.outputs.version }}"
