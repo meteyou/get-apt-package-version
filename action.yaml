@@ -22,7 +22,7 @@ runs:
   using: "composite"
   steps:
     - id: build
-      run: docker build --build-arg BASE_IMAGE=${{ inputs.baseImage }} -t apt-package-version .
+      run: docker build --build-arg BASE_IMAGE=${{ inputs.baseImage }} -t apt-package-version ./get-apt-package-version
       shell: bash
     - id: run
       run: docker run --rm -v $(pwd):/github/workspace --workdir /github/workspace apt-package-version ${{ inputs.ppa && format('-p {0}', inputs.ppa) }} ${{ inputs.package }}
