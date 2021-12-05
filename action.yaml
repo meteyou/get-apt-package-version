@@ -1,5 +1,8 @@
 name: "Get APT package version"
 description: "Get candidate package version in an Ubuntu/Debian APT repo"
+branding:
+  icon: package
+  color: orange
 inputs:
   baseImage:
     description: "Ubuntu/Debian based image to use"
