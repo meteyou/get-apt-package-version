@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Get version
         id: get_version
-        uses: dangmai/get-apt-package-version@v1.0.0
+        uses: dangmai/get-apt-package-version@v1.1.0
         with:
           ppa: nextcloud-devs/client
           package: nextcloud-desktop
