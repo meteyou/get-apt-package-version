@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ubuntu:focal
+ARG BASE_IMAGE=ubuntu:jammy
 
 FROM $BASE_IMAGE
 COPY get-package-version.sh /get-package-version.sh

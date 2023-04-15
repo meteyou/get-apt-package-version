@@ -27,7 +27,8 @@ apt-get update
 
 if [[ ! -z "$PPA" ]]
 then
-  apt-get install -y --no-install-recommends software-properties-common
+  # gpg-agent is not installed through the dependencies, but it's needed for `gpg` command line
+  apt-get install -y --no-install-recommends gpg-agent software-properties-common
   add-apt-repository "ppa:$PPA"
 fi
 
